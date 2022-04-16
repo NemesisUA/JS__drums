@@ -1,0 +1,69 @@
+ html {
+    margin: 0;
+    padding: 0;  
+    font-family: Arial, Helvetica, sans-serif;   
+ }
+
+ body{
+    max-width: 1200px; 
+    height: 100vh;   
+    margin: auto;    
+    background: center / contain  no-repeat ; 
+    background-image: url(background.jpg) ; 
+    
+  }
+
+  h1 {     
+      font-size: 36px;
+      text-align: center;
+      padding-top: 5vh;
+      color: rgb(28, 110, 231);
+      text-shadow: 2px 2px darkgray;
+  }
+  .keys {
+      display: flex;
+      justify-content: space-evenly;
+      max-width: 1000px;  
+      margin: auto;    
+      padding-top: 55vh;
+  }
+
+  .key {
+      width: 60px;
+      padding: 10px 2px;
+      background-color: rgb(28, 110, 231);;
+      border: 2px solid black;
+      border-radius: 3px;      
+      box-shadow: 5px 5px 3px black;
+      opacity: 75%;
+  }
+
+  /* when key pressed add class .playing */
+
+  .playing {
+      transform: scale(1.15);
+      opacity: 100%;
+      border-color: blue;
+      box-shadow: 0 0 10px blue;
+  }
+
+  kbd {
+      display: block;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      text-align: center; 
+      text-shadow: 2px 2px  black;
+      
+  }
+
+  .sound {
+      display: block;
+      text-align: center;
+      font-weight: bold;
+      color: yellow;
+      text-shadow: 2px 2px  black;
+  }
+  
+
+  
