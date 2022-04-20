@@ -66,17 +66,26 @@
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
       if (!audio) return // if wrong key was pressed - then do nothing. else - play the audio
-      audio.currentTime = 0;
+      audio.currentTime = 0; //rewind to the start
       audio.play();
 
       key.classList.add("playing");
       // when to remove class 'playing'? simple way is to set the interval:
 
-        setInterval(function () {
-          key.classList.remove("playing")
-        }, 200);
+        // setInterval(function () {
+        //   key.classList.remove("playing")
+        // }, 200);
       
     }
+
+    function removeClassPlaying(e) {
+      if (e.propertyName !== 'transform') return;
+      this.classList.remove('playing');
+    }
+
+    const keys = document.querySelectorAll('.key');
+    // if transition is over - remove class 'playing'
+    keys.forEach(key => key.addEventListener('transitionend', removeClassPlaying));
 
     window.addEventListener('keydown', playSound);
   </script>
