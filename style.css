@@ -15,8 +15,7 @@
 
   h1 {     
       font-size: 36px;
-      text-align: center;
-      padding-top: 5vh;
+      text-align: center;      
       color: rgb(28, 110, 231);
       text-shadow: 2px 2px darkgray;
   }
@@ -25,7 +24,7 @@
       justify-content: space-evenly;
       max-width: 1000px;  
       margin: auto;    
-      padding-top: 55vh;
+      padding-top: 60vh;
   }
 
   .key {
@@ -36,6 +35,8 @@
       border-radius: 3px;      
       box-shadow: 5px 5px 3px black;
       opacity: 75%;
+
+      transition: all 0.2s;
   }
 
   /* when key pressed add class .playing */
@@ -44,7 +45,7 @@
       transform: scale(1.15);
       opacity: 100%;
       border-color: blue;
-      box-shadow: 0 0 10px blue;
+      box-shadow: 0 0 20px gold;
   }
 
   kbd {
@@ -61,7 +62,7 @@
       display: block;
       text-align: center;
       font-weight: bold;
-      color: yellow;
+      color: gold;
       text-shadow: 2px 2px  black;
   }
   

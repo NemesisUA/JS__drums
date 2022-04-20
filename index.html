@@ -60,7 +60,20 @@
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
-    <script></script>
+    <script>
+        window.addEventListener('keydown', function(e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+            key.classList.add("playing");
+            setInterval(function() {
+                key.classList.remove("playing")
+            }, 200);
+
+            audio.currentTime = 0;
+            audio.play();
+        })
+    </script>
 </body>
 
 </html>
