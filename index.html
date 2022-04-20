@@ -65,14 +65,17 @@
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-      key.classList.add("playing");
-      // when to remove class 'playing'? simple way is to set the interval
-      setInterval(function () {
-        key.classList.remove("playing")
-      }, 200);
-
+      if (!audio) return // if wrong key was pressed - then do nothing. else - play the audio
       audio.currentTime = 0;
       audio.play();
+
+      key.classList.add("playing");
+      // when to remove class 'playing'? simple way is to set the interval:
+
+        setInterval(function () {
+          key.classList.remove("playing")
+        }, 200);
+      
     }
 
     window.addEventListener('keydown', playSound);
