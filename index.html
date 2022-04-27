@@ -7,9 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Virtual Drums</title>
   <link rel="stylesheet" href="style.css">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad()</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css">
 </head>
 
 <body>
+  <main>
   <h1>Virtual Drums</h1>
   <div class="keys">
     <div data-key="65" class="key">
@@ -59,7 +64,48 @@
   <audio data-key="74" src="sounds/snare.wav"></audio>
   <audio data-key="75" src="sounds/tom.wav"></audio>
   <audio data-key="76" src="sounds/tink.wav"></audio>
+  </main>
 
+  <aside>
+    <h2>Key codes</h2>
+    <p><a href="https://keycode.info/">https://keycode.info/</a></p>
+    
+    <h2>Highlight.js</h2>
+    <p>youtube: <a href="https://www.youtube.com/watch?v=hyJaMLkqffY">syntax highlighting - in 5 minutes</a></p>
+    <p>theme: apprentice.min.css</p>
+
+    <pre>
+      <code class="html">
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js" &gt;&lt;script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad()&lt;script&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/apprentice.min.css"&gt;
+      </code>
+    </pre>
+
+    <h2>Work with audio:</h2>
+    <pre>
+      <code class="js">
+    audio.currentTime = 0;   //rewind to the start
+    audio.play();
+      </code>
+    </pre>
+
+    <h2>Event "transitionend"</h2>
+     <pre>
+    <code class="js">
+    function removeClassPlaying(e) {
+      if (e.propertyName !== 'transform') return;
+      this.classList.remove('playing');
+    }
+    
+    const keys = document.querySelectorAll('.key');
+    // if transition is over - remove class 'playing'
+    keys.forEach(key => 
+        key.addEventListener('transitionend', removeClassPlaying));
+    </code>
+    </pre>
+
+  </aside>  
   <script>
     function playSound(e) {
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
